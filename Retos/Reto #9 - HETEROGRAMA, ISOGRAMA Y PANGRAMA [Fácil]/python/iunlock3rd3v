@@ -1,0 +1,37 @@
+
+#identifica un pentagrama
+def es_pentagrama(palabra):
+    return len(palabra) == 5
+#identifica un heterograma
+def es_heterograma(palabra):
+    letras = set(palabra)
+    return len(palabra) == len(letras)
+#identifica un isograma
+def es_isograma(palabra):
+    letras = {}
+    for letra in palabra:
+        if letra in letras:
+            letras[letra] += 1
+        else:
+            letras[letra] = 1
+    for valor in letras.values():
+        if valor > 1:
+            return False
+    return True
+#solcito ingresar la palabra y con mi ciclo identifico si es o no es heterograma,isograma o pentagrama
+while True:
+    palabra = input("Ingresa una palabra: \n")
+
+    if es_isograma(palabra):
+        print("\nLa palabra es un isograma\n")
+    else:
+        print("La palabra no es un isograma\n")
+
+    if es_pentagrama(palabra):
+        print("La palabra es un pentagrama\n")
+    else:
+        print("La palabra no es un pentagrama\n")
+    if es_heterograma(palabra):
+        print("La palabra es un heterograma\n")
+    else:
+        print("La palabra no es un heterograma\n")
